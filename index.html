@@ -230,7 +230,7 @@ const PRESETS=[
  {label:'OT',abbr:'OT',color:'yellow'},
  {label:'PTO',abbr:'PTO',color:'blue'},
  {label:'Request off',abbr:'RO',color:'gray'},
- {label:'Swap with coworker',abbr:'SW',color:'orange'}
+ {label:'Shift swap',abbr:'SW',color:'orange'}
 ];
 const COMMON=[
  ["New Year's Day",{t:'fixed',m:0,d:1}],
@@ -350,7 +350,7 @@ function infoFor(n){
  const k=keyOf(n),note=data.notes[k]||null,work=isWork(n),marks=[];
  for(const e of eventsOn(n))marks.push({type:e.kind,abbr:e.abbr||(e.kind==='holiday'?'H':'E'),short:e.name,full:e.name+(e.kind==='holiday'?' (paid holiday)':' (company event)')});
  if(isPayday(n))marks.push({type:'pay',abbr:'P',short:'Payday',full:'Payday'});
- if(isClose(n))marks.push({type:'close',abbr:'PC',short:'PP close',full:'Pay period closes (paid '+fmtShort(n+data.settings.closeBefore)+')'});
+ if(isClose(n))marks.push({type:'close',abbr:'PC',short:'Pay close',full:'Pay period closes (paid '+fmtShort(n+data.settings.closeBefore)+')'});
  return{n,k,work,note,marks};
 }
 function styleOf(i){
